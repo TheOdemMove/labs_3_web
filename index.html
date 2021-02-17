@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Реєстрація</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        /* Add padding to containers */
+        .container {
+            padding: 16px;
+            background-color: white;
+        }
+
+        /* Full-width input fields */
+        input[type=text], input[type=password], input[type=date], input[type=email], input[type=tel], input[type=url], input[type=number], input[type=range], input[type=time], input[type=color] {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        input[type=text]:focus, input[type=password]:focus, input[type=date]:focus, input[type=email]:focus, input[type=tel]:focus, input[type=url]:focus, input[type=number]:focus, input[type=range]:focus, input[type=time]:focus, input[type=color]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 5px 0 22px 0;
+            display: inline-block;
+            border: none;
+            background: #f1f1f1;
+        }
+
+        textarea:focus{
+            background-color: #ddd;
+            outline: none;
+        }
+
+        /* Overwrite default styles of hr */
+        hr {
+            border: 1px solid #f1f1f1;
+            margin-bottom: 25px;
+        }
+
+        /* Set a style for the submit button */
+        .registerbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 16px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            opacity: 0.9;
+        }
+
+        .registerbtn:hover {
+            opacity: 1;
+        }
+
+        /* Add a blue text color to links */
+        a {
+            color: dodgerblue;
+        }
+
+        .ss {
+            color: red;
+        }
+
+        .jove {
+            width: 100%;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+
+<form class="reg">
+    <div class="container">
+        <h1>Реєстраційна форма замовлення столику в ресторані (Лабораторна робота №3)</h1>
+        <p>Якість облсуговування у нашому закладі:</p>
+        <progress class="jove" value="95" max="100"> Кількість заповненої інформації</progress>
+        <hr>
+        <form method="post">
+            <fieldset>
+            <label><b>Ваш номер мобільного телефону: </b></label>
+            <label>
+                <input type="text" placeholder="Enter mobile number" name="phone" placeholder="Телефон"
+                       pattern="\+?[0-9\s\-\(\)]+"
+                       minlength="13"
+                       maxlength="13" required>
+            </label>
+
+            <label><b>Ваш Email: </b></label>
+            <label>
+                <input type="email" placeholder="Enter Email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" autocomplete="off" required>
+            </label>
+
+
+            <label><b>Посилання на ваш аккаунт у соц.мережах (не обов'язково): </b></label>
+            <label>
+                <input type="url" placeholder="Enter Url" name="urladd" placeholder="https://example.com" pattern="http(s?)(:\/\/)((www.)?)(([^.]+)\.)?([a-zA-z0-9\-_]+)(.com|.net|.gov|.org|.in)(\/[^\s]*)?" maxlength="250">
+            </label>
+
+            <label><b>Ваше ім'я (використовуйте латиницю): </b></label>
+            <label>
+                <input type="text" placeholder="Enter Name" name="name" minlength="3" pattern="^[a-zA-Z]+$" required>
+            </label>
+
+            <label><b>Ваше прізвище (використовуйте латиницю): </b></label>
+            <label>
+                <input type="text" placeholder="Enter Surname" name="surname" minlength="3" pattern="^[a-zA-Z]+$" required>
+            </label>
+
+            <label><b>Ваша дата народження: </b></label>
+            <label>
+                <input type="date" placeholder="Enter Birthday" name="birthday" minlength="8" required>
+            </label>
+
+
+            <label><b>Дата на яку бажаєте замовити столик: </b></label>
+            <label>
+                <input type="date" placeholder="Enter date" name="date_s" minlength="8" required>
+            </label>
+
+            <label><b>Час на який бажаєте замовити столик: </b></label>
+            <label>
+                <input type="time" placeholder="Enter time" name="time_s" required>
+            </label>
+
+            <label><b>Кількість гостей (передбачених місць): </b></label>
+            <label>
+                <input type="number" placeholder="Enter count guest" name="guest" required>
+            </label>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Не обов'язкова інформація</legend>
+            <label><b>Бажаний колір освітлення столику (натисніть та оберіть): </b></label>
+            <label>
+                <input type="color" placeholder="Enter color" name="color">
+            </label>
+
+
+            <label><b>Побажання: </b></label>
+            <label>
+                <textarea spellcheck="false">Напишіть свої побажання</textarea>
+            </label>
+
+
+            <label><b>Де ви нас знайшли: </b></label>
+            <label>
+                <input type="text" list="cocktail" placeholder="Enter text" name="text">
+                <datalist id="cocktail">
+                    <option>Instagram</option>
+                    <option>Telegram</option>
+                    <option>Facebook</option>
+                    <option>Від друзів</option>
+                    <option>Реклама на вулиці</option>
+                </datalist>
+            </label>
+
+            </fieldset>
+
+            <br>
+            <hr>
+
+            <button type="submit" class="registerbtn" formmethod="post">Замовити столик</button>
+
+
+        </form>
+
+
+    </div>
+
+</form>
+
+
+</body>
+</html>
